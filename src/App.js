@@ -9,14 +9,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
+      toDo: [], 
     }
+  }
+
+  addTask = (itemName) => {
+    const newItem = {
+      name: itemName,
+      id: new Date(), 
+      completed: false, 
+    }
+
+    this.setState({
+      toDo: [...this.state.toDo, newItem]
+    })
   }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <Todo addTask={this.addTask}/>
       </div>
     );
   }
