@@ -1,0 +1,7 @@
+.item-finished {
+    text-decoration: line-through;
+  }
+  
+  p {
+      color: blue;
+  }
