@@ -29,6 +29,14 @@ class App extends React.Component {
     })
   }
 
+  clearFinished = (item) => {
+    this.setState({
+      toDoTotal: this.state.toDoTotal.filter((item) => {
+        return item.completed === false
+      })
+    })
+  }
+
   toggleTask = (clickedItemID) => {
     debugger
     this.setState({
@@ -50,7 +58,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTask={this.addTask}/>
-        <TodoList tasks={this.state.toDoTotal} toggleTask={this.toggleTask}/>
+        <TodoList tasks={this.state.toDoTotal} toggleTask={this.toggleTask} clearFinished={this.clearFinished}/>
       </div>
     );
   }
